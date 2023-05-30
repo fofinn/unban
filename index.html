@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fofin ia unban in</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Verdana, sans-serif;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #642d2d;
+            /* Schimbă culoarea de fundal aici */
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            color: white;
+            text-align: center;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            color: white;
+            /* Schimbă culoarea fontului aici */
+        }
+        
+        h1 {
+            font-size: 36px;
+            color: white;
+            /* Schimbă culoarea fontului aici */
+        }
+        
+        li span {
+            font-size: 30px;
+            color: white;
+            /* Schimbă culoarea fontului aici */
+        }
+    </style>
+    <script>
+        // Funcția care calculează timpul rămas până pe 19 iunie
+        function numaraTimp() {
+            var dataCurenta = new Date(); // Obținem data curentă
+            var dataTinta = new Date(dataCurenta.getFullYear(), 5, 15); // 19 iunie în anul curent
+
+            // Calculăm diferența dintre cele două date
+            var dif = dataTinta - dataCurenta;
+
+            // Convertim diferența în zile, ore, minute și secunde
+            var zileRămase = Math.floor(dif / (1000 * 60 * 60 * 24));
+            var oreRămase = Math.floor((dif % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minuteRămase = Math.floor((dif % (1000 * 60 * 60)) / (1000 * 60));
+            var secundeRămase = Math.floor((dif % (1000 * 60)) / 1000);
+
+            // Actualizăm textul afișat în pagina HTML
+            document.getElementById("numar-zile").textContent = zileRămase;
+            document.getElementById("numar-ore").textContent = oreRămase;
+            document.getElementById("numar-minute").textContent = minuteRămase;
+            document.getElementById("numar-secunde").textContent = secundeRămase;
+        }
+
+        // Apelăm funcția pentru a inițializa timpul rămas la încărcarea paginii
+        window.onload = numaraTimp;
+        // Actualizăm timpul rămas la fiecare secundă
+        setInterval(numaraTimp, 1000);
+    </script>
+</head>
+
+<body>
+    <h1 id="titlu">Created by fofinul</h1>
+    <p style="font-size: 30px;color: white;">Mai sunt atatea zile, ore, minute si secunde pana ia fofin unban:</p>
+    <ul>
+        <li><span id="numar-zile"></span> zile</li>
+        <li><span id="numar-ore"></span> ore</li>
+        <li><span id="numar-minute"></span> minute</li>
+        <li><span id="numar-secunde"></span> secunde</li>
+    </ul>
+</body>
+
+</html>
